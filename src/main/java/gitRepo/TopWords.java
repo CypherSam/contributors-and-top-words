@@ -36,7 +36,7 @@ public class TopWords {
 		return word;
 	}
 	
-	
+	// Collect all contributors for a Repo
 	public static List<String> getContributors(String url) throws IOException {
 		Set<String> contributors = new HashSet<>();
 		JsonNode contributorNode = getNode(url);
@@ -50,7 +50,7 @@ public class TopWords {
 		return new ArrayList<>(contributors);
 	}
 
-	
+	// Collect all words from commit messages and return only top 10
 	public static List<String> topTenWords(String url) throws IOException {
 		HashMap<String,Integer> wordCount = new HashMap<>();
 		JsonNode commitNode = getNode(url);
@@ -135,7 +135,7 @@ public class TopWords {
 				
 				repoList.add(r);
 				
-				System.out.printf("Repo %s :\n Contributors : %s\n Top Ten Words : %s\n\n",r.name, r.contributors,r.topTenWords);
+				System.out.printf("Repo : %s \n Contributors : %s\n Top Ten Words : %s\n\n",r.name, r.contributors,r.topTenWords);
 				
 			}
 
